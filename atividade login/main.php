@@ -4,6 +4,10 @@
         header("Location:login.php?erro=1");
         exit();
     }
+
+    if (isset($_GET[txt])){
+        $_SESSION["login"]=$_GET["txt"];
+    }
     echo $_SESSION["login"];
 ?>
 
