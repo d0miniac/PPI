@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é JavaScript?</title>
+</head>
+<body>
+    <h1 id="titulo">O que é JavaScript?</h1>
+        
+    <p id="explicacao">
+        O JavaScript foi criado para adicionar interatividade às páginas da web.<br>
+        Foi desenvolvido pela Netscape em 1995 como uma linguagem leve para o navegador. <br>
+        Diferente de outras linguagens, o JavaScript pode ser executado tanto no navegador quanto no servidor <br>
+        (com Node.js). No navegador, ele opera em uma sandbox, um ambiente seguro que restringe seu acesso ao sistema. <br>
+        Alguns objetos globais essenciais do JavaScript são <code>document</code> (para manipular elementos HTML), <br>
+        <code>console</code> (para depuração) e <code>alert</code> (para exibir mensagens na tela).     
+    </p>  
+
+    <p id="Hora">Hora atual: </p>
+
+    <script>        
+        alert("Seja bem-vindo!");
+        
+        console.log("Página carregada");
+        
+        document.getElementById("Hora").innerHTML += new Date().toLocaleTimeString();
+    </script>
+</body>
+</html>
