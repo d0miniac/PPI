@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000000;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculadora {
+      background-color: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .tela {
+      background-color: #ff0000;
+      color: #fff;
+      text-align: right;
+      padding: 20px;
+      font-size: 2em;
+    }
+
+    .botoes {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      background-color: #f2f2f2;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    button.operador {
+      background-color: #ffffff;
+    }
+
+    button.resultado {
+      background-color: #fa0c0c;
+      color: white;
+      grid-row: span 2;
+    }
+
+    button.ac {
+      background-color: #ffffff;
+    }
+
+    button:hover {
+      filter: brightness(90%);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculadora">
+    <div id="tela" class="tela">0</div>
+    <div class="botoes">
+      <button class="operador">+</button>
+      <button class="operador">-</button>
+      <button class="operador">*</button>
+      <button class="operador">/</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button class="resultado">=</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="ac">AC</button>
+
+      <button>0</button>
+      <button>.</button>
+    </div>
+  </div>
+
+  <script>
+    const tela = document.getElementById('tela');
+    const botoes = document.querySelectorAll('button');
+
+    let expressao = '';
+
+    botoes.forEach(botao => {
+      botao.addEventListener('click', () => {
+        const valor = botao.textContent;
+
+        if (valor === 'AC') {
+          expressao = '';
+          tela.textContent = '0';
+        } else if (valor === '=') {
+          try {
+            expressao = eval(expressao).toString();
+            tela.textContent = expressao;
+          } catch (e) {
+            tela.textContent = 'Erro';
+            expressao = '';
+          }
+        } else {
+          expressao += valor;
+          tela.textContent = expressao;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

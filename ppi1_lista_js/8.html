@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alteração de Cores</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+    }
+    .color-box {
+      flex: 1;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: #000;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="color-box">#05668D</div>
+  <div class="color-box">#427AA1</div>
+  <div class="color-box">#EBF2FA</div>
+  <div class="color-box">#679436</div>
+  <div class="color-box">#A5BE00</div>
+
+  <script>
+    function gerarCorAleatoria() {
+      const letras = '0123456789ABCDEF';
+      let cor = '#';
+      for (let i = 0; i < 6; i++) {
+        cor += letras[Math.floor(Math.random() * 16)];
+      }
+      return cor;
+    }
+
+    function alterarCores() {
+      const caixas = document.querySelectorAll('.color-box');
+      caixas.forEach(caixa => {
+        const novaCor = gerarCorAleatoria();
+        caixa.style.backgroundColor = novaCor;
+        caixa.textContent = novaCor;
+        caixa.style.color = parseInt(novaCor.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#FFF';
+      });
+    }
+
+    // Escuta a tecla de espaço
+    document.addEventListener('keydown', function(e) {
+      if (e.code === 'Space') {
+        e.preventDefault(); // Evita scroll da página
+        alterarCores();
+      }
+    });
+
+    // Inicializa com as cores corretas
+    alterarCores();
+  </script>
+</body>
+</html>
