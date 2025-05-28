@@ -48,15 +48,13 @@
       });
     }
 
-    // Escuta a tecla de espaço
     document.addEventListener('keydown', function(e) {
       if (e.code === 'Space') {
-        e.preventDefault(); // Evita scroll da página
+        e.preventDefault(); 
         alterarCores();
       }
     });
 
-    // Inicializa com as cores corretas
     alterarCores();
   </script>
 </body>
