@@ -20,7 +20,7 @@
 
     <p id="resultadoIMC"></p>
     <p id="classificacao"></p>
-    <img id="imgPerfil" src="./perfil.jpg" alt="Perfil de saúde">
+    <img id="imgPerfil" src="./img/perfil.jpg" alt="Perfil de saúde">
 
     <script>
         function calcularIMC() {
@@ -44,27 +44,27 @@
             switch (true) {
                 case (imc < 18.5):
                     categoria = "Abaixo do peso";
-                    imgPerfil.src = "./abaixopeso.png";
+                    imgPerfil.src = "./img/abaixopeso.png";
                     break;
                 case (imc < 24.9):
                     categoria = "Peso normal";
-                    imgPerfil.src = "./normal.png";
+                    imgPerfil.src = "./img/normal.png";
                     break;
                 case (imc < 29.9):
                     categoria = "Sobrepeso";
-                    imgPerfil.src = "./sobrepeso.png";
+                    imgPerfil.src = "./img/sobrepeso.png";
                     break;
                 case (imc < 34.9):
                     categoria = "Obesidade grau 1";
-                    imgPerfil.src = "./obesidade1.png";
+                    imgPerfil.src = "./img/obesidade1.png";
                     break;
                 case (imc < 39.9):
                     categoria = "Obesidade grau 2";
-                    imgPerfil.src = "./obesidade2.png";
+                    imgPerfil.src = "./img/obesidade2.png";
                     break;
                 default:
                     categoria = "Obesidade grau 3 (mórbida)";
-                    imgPerfil.src = "./obesidade3.png";
+                    imgPerfil.src = "./img/obesidade3.png";
                     break;
             }
 
